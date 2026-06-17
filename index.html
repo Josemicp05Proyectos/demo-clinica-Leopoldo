@@ -38,25 +38,42 @@
 <body class="bg-slate-50 text-slate-800">
 
     <!-- BARRA DE NAVEGACIÓN -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50 relative">
+    <nav class="bg-white shadow-sm sticky top-0 z-50 relative" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex flex-col justify-center">
                     <span class="font-bold text-xl text-blue-900 tracking-tight">Dr. Leopoldo Hernández</span>
                     <span class="text-xs text-slate-500 uppercase tracking-wider">Clínica Dental</span>
                 </div>
-                <!-- Menú Desktop (Oculto en móvil por ahora para simplificar) -->
+                
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#inicio" class="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition">Inicio</a>
                     <a href="#doctor" class="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition">El Doctor</a>
                     <a href="#tratamientos" class="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition">Tratamientos</a>
-                    <button onclick="abrirModal()" class="bg-blue-600 text-white hover:bg-blue-700 px-5 py-2 rounded-md text-sm font-medium transition cursor-pointer">Pedir Cita</button>                </div>
+                    <button onclick="abrirModal()" class="bg-blue-600 text-white hover:bg-blue-700 px-5 py-2 rounded-md text-sm font-medium transition cursor-pointer shadow-md hover:-translate-y-0.5">Pedir Cita</button>
+                </div>
+
+                <div class="md:hidden flex items-center gap-3">
+                    <button onclick="abrirModal()" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-xs font-semibold transition shadow-md">Cita</button>
+                    <button id="btn-menu-dental" class="p-2 rounded-md bg-slate-50 text-slate-800 border border-slate-200 focus:outline-none hover:bg-slate-100 transition">
+                        <svg id="icon-menu-dental" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                        <svg id="icon-close-dental" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
             </div>
         </div>
-        <!-- Barra de progreso dinámica -->
+
+        <div id="menu-movil-dental" class="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-2xl opacity-0 invisible transition-all duration-300 transform -translate-y-2 z-40">
+            <div class="px-6 py-6 flex flex-col space-y-4 text-center">
+                <a href="#inicio" class="link-movil-dental text-lg font-bold text-slate-800 hover:text-blue-600 border-b border-slate-100 pb-4">Inicio</a>
+                <a href="#doctor" class="link-movil-dental text-lg font-bold text-slate-800 hover:text-blue-600 border-b border-slate-100 pb-4">El Doctor</a>
+                <a href="#tratamientos" class="link-movil-dental text-lg font-bold text-slate-800 hover:text-blue-600">Tratamientos</a>
+            </div>
+        </div>
+
         <div id="progress-bar" class="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-400 to-blue-700 w-0 transition-all duration-150 z-50 rounded-r-full"></div>
     </nav>
-
+    
     <!-- HERO SECTION (Cabecera Principal) -->
     <section id="inicio" class="relative bg-white overflow-hidden border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 flex flex-col lg:flex-row items-center">
