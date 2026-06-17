@@ -73,7 +73,7 @@
 
         <div id="progress-bar" class="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-400 to-blue-700 w-0 transition-all duration-150 z-50 rounded-r-full"></div>
     </nav>
-    
+
     <!-- HERO SECTION (Cabecera Principal) -->
     <section id="inicio" class="relative bg-white overflow-hidden border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 flex flex-col lg:flex-row items-center">
@@ -665,6 +665,31 @@
             const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
             document.getElementById('progress-bar').style.width = scrolled;
+        });
+    </script>
+    <script>
+        const btnMenuDental = document.getElementById('btn-menu-dental');
+        const menuMovilDental = document.getElementById('menu-movil-dental');
+        const iconMenuDental = document.getElementById('icon-menu-dental');
+        const iconCloseDental = document.getElementById('icon-close-dental');
+        const linksMovilDental = document.querySelectorAll('.link-movil-dental');
+
+        // Abrir/cerrar al hacer clic en la hamburguesa
+        btnMenuDental.addEventListener('click', () => {
+            menuMovilDental.classList.toggle('opacity-0');
+            menuMovilDental.classList.toggle('invisible');
+            menuMovilDental.classList.toggle('-translate-y-2');
+            iconMenuDental.classList.toggle('hidden');
+            iconCloseDental.classList.toggle('hidden');
+        });
+
+        // Cerrar menú automáticamente cuando hagan clic en una sección
+        linksMovilDental.forEach(link => {
+            link.addEventListener('click', () => {
+                menuMovilDental.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                iconMenuDental.classList.remove('hidden');
+                iconCloseDental.classList.add('hidden');
+            });
         });
     </script>
 </body>
